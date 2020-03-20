@@ -21,6 +21,11 @@ h1 {
     font-family: 'Merriweather', serif;
 }
 
+input {
+    font-size: 1em;
+    margin: 1em;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
