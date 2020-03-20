@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Occidental Dictionary Search</title>
+  <!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
+</head>
+
+<body>
+  <h1>Occidental Dictionary Search</h1>
+  <button value="en" onclick="getDictionary(this)">English</button>
+  <br><hr>
+  <input type="search" id="jetsSearch">
+  <div id="parsed_csv_list"></div>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    function getDictionary(element) {
+      var languageISO = element.value;
+      console.log(languageISO);
+      var csvURL = "https://raw.githubusercontent.com/occidental-lang/dictionaries/master/" + languageISO + "-ie.csv";
+
+
+
+      Papa.parse(csvURL, {
+        download: true,
+        //worker: true,
+        //step: function(row) {
+        //  console.log("Row:", row.data);
+        //},
+        complete: displayHTMLTable
+      });
+    }
+
+    function displayHTMLTable(results){
+      var table = "<table class='table'><tbody id='jetsContent'>";
+      var data = results.data;
+
+      for(i=0;i<data.length;i++){
+        table+= "<tr>";
+        var row = data[i];
+        var cells = row.join(",").split(",");
+
+        for(j=0;j<cells.length;j++){
+          table+= "<td>";
+          table+= cells[j];
+          table+= "</th>";
+        }
+        table+= "</tr>";
+      }
+      table+= "</tbody></table>";
+        $("#parsed_csv_list").html(table);
+        var jets = new Jets({
+        searchTag: '#jetsSearch',
+        contentTag: '#jetsContent',
+        columns: [0] // optional, search by first column only
+      });
+    }
+  </script>
+ </body>
+ 
+</html>
