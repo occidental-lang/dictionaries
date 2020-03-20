@@ -19,10 +19,6 @@
     <div id="parsed_csv_list"></div>
   </div>
   
-
-
-
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
@@ -35,10 +31,13 @@
       switch (languageISO) {
         case 'en':
           searchPlaceholder = "search";
+          break;
         case 'ru':
           searchPlaceholder = "поиска";
+          break;
         case 'cn':
           searchPlaceholder = "搜索";
+          break;
         default:
           searchPlaceholder = "search";
       }
@@ -81,7 +80,7 @@
       var jets = new Jets({
         searchTag: '#jetsSearch',
         contentTag: '#jetsContent',
-        columns: [0] // optional, search by first column only
+        columns: [0] // Only search native language first column
       });
     }
   </script>
