@@ -14,7 +14,11 @@
   <button value="cn" onclick="getDictionary(this)">中文</button>
   <button value="ru" onclick="getDictionary(this)">Русский</button>
   <br><hr>
-  <div id="parsed_csv_list"></div>
+  <div id="data">
+    <div id="dictionary_search"></div>
+    <div id="parsed_csv_list"></div>
+  </div>
+  
 
 
 
@@ -43,7 +47,8 @@
       var csvURL = "data/" + languageISO + "-ie.csv";
 
       $("#parsed_csv_list").empty();
-      $("#parsed_csv_list").html("<input placeholder=" + searchPlaceholder + " type='search' id='jetsSearch'>");
+      $("#dictionary_search").empty();
+      $("#dictionary_search").html("<input placeholder=" + searchPlaceholder + " type='search' id='jetsSearch'>");
 
       Papa.parse(csvURL, {
         download: true,
