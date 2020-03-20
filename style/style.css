@@ -48,3 +48,8 @@ th {
     color: #dad1c2;
     font-weight: bold;
 }
+
+.github-corner {
+    fill: var(--color);
+    color: var(--background-color);
+}

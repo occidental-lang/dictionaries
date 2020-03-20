@@ -1,7 +1,7 @@
 /* light.css: 👉 dark-on-light */
 :root {
-    --color: rgb(5, 5, 5);
-    --background-color: rgb(250, 250, 250);
+    --color: #050505;
+    --background-color: #FAFAFA;
     --border-color: rgb(218, 218, 218);
     --alternate-cell-color: #eeeeee;
 }
