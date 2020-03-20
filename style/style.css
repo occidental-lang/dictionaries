@@ -9,9 +9,12 @@ body {
 }
 
 body, html {
-    height: 100%;
-    display: grid;
     font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    margin: auto;
+    text-align: center;
 }
 
 h1 {
@@ -19,7 +22,6 @@ h1 {
 }
 
 table {
-    /* font-family: 'Montserrat', sans-serif; */
     border-collapse: collapse;
     width: 100%;
 }

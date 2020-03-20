@@ -28,11 +28,15 @@
 </head>
 
 <body>
-  <h1>Occidental Dictionary Search</h1>
-  <button value="en" onclick="getDictionary(this)">English</button>
-  <button value="cn" onclick="getDictionary(this)">中文</button>
-  <button value="ru" onclick="getDictionary(this)">Русский</button>
+  <header>
+    <h1>Occidental Dictionary Search</h1>
+    <button value="en" onclick="getDictionary(this)">English</button>
+    <button value="cn" onclick="getDictionary(this)">中文</button>
+    <button value="ru" onclick="getDictionary(this)">Русский</button>
+  </header>
+
   <br><hr>
+
   <div id="data">
     <div id="dictionary_search"></div>
     <div id="parsed_csv_list"></div>
@@ -70,6 +74,7 @@
 
       Papa.parse(csvURL, {
         download: true,
+        header: false,
         //worker: true,
         //step: function(row) {
         //  console.log("Row:", row.data);
@@ -79,18 +84,20 @@
     }
 
     function displayHTMLTable(results){
-      var table = "<table class='table'><tbody id='jetsContent'>";
+      var table = "<table class='table'><thead><tr>";
       var data = results.data;
+      var header = data.shift;
+      header.forEach(function(item, index) {
+        table+= "<th>" + item + "</th>";
+      })
+      table+= "</tr></thead><tbody id='jetsContent'>";
 
       for(i=0;i<data.length;i++){
         table+= "<tr>";
         var row = data[i];
-        var cells = row.join(",").split(",");
 
-        for(j=0;j<cells.length;j++){
-          table+= "<td>";
-          table+= cells[j];
-          table+= "</th>";
+        for(j=0;j<row.length;j++){
+          table+= "<td>" + cells[j] + "</td>";
         }
         table+= "</tr>";
       }
