@@ -14,7 +14,6 @@
   <button value="cn" onclick="getDictionary(this)">中文</button>
   <button value="ru" onclick="getDictionary(this)">Русский</button>
   <br><hr>
-  <input type="search" id="jetsSearch">
   <div id="parsed_csv_list"></div>
 
 
@@ -27,10 +26,24 @@
   <script>
     function getDictionary(element) {
       var languageISO = element.value;
+      
+      var searchPlaceholder = '';
+      switch (languageISO) {
+        case 'en':
+          searchPlaceholder = "search";
+        case 'ru':
+          searchPlaceholder = "поиска";
+        case 'cn':
+          searchPlaceholder = "搜索";
+        default:
+          searchPlaceholder = "search";
+      }
+
       console.log(languageISO);
       var csvURL = "https://raw.githubusercontent.com/occidental-lang/dictionaries/master/" + languageISO + "-ie.csv";
 
-
+      $("#parsed_csv_list").empty();
+      $("#parsed_csv_list").html("<input placeholder=" + searchPlaceholder + " type='search' id='jetsSearch'>");
 
       Papa.parse(csvURL, {
         download: true,
@@ -59,8 +72,8 @@
         table+= "</tr>";
       }
       table+= "</tbody></table>";
-        $("#parsed_csv_list").html(table);
-        var jets = new Jets({
+      $("#parsed_csv_list").html(table);
+      var jets = new Jets({
         searchTag: '#jetsSearch',
         contentTag: '#jetsContent',
         columns: [0] // optional, search by first column only
