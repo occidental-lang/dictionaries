@@ -1,0 +1,42 @@
+/* style.css */
+:root {
+    color-scheme: light dark;
+}
+
+body {
+    color: var(--color);
+    background-color: var(--background-color);
+}
+
+body, html {
+    height: 100%;
+    display: grid;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+}
+
+table {
+    /* font-family: 'Montserrat', sans-serif; */
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: var(--alternate-cell-color);}
+
+tr:hover {background-color: var(--border-color);}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ffff00;
+    color: black;
+}
