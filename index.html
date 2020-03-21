@@ -51,6 +51,7 @@
     <a href="https://occidental-lang.com"><img src="https://occidental-lang.com/img/occidental-logo2.png" alt="Occidental old style logo" width="150px"></a>
     <h1>Dictionary Search</h1>
     <button value="en" onclick="getDictionary(this)">English</button>
+    <button value="de" onclick="getDictionary(this)">Deutsch</button>
     <button value="cn" onclick="getDictionary(this)">中文</button>
     <button value="ru" onclick="getDictionary(this)">Русский</button>
     <button value="eo" onclick="getDictionary(this)">Esperanto</button>
@@ -74,6 +75,9 @@
       switch (languageISO) {
         case 'en':
           searchPlaceholder = "search";
+          break;
+        case 'de':
+          searchPlaceholder = "suchen";
           break;
         case 'ru':
           searchPlaceholder = "поиск";
