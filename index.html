@@ -53,6 +53,7 @@
     <button value="en" onclick="getDictionary(this)">English</button>
     <button value="cn" onclick="getDictionary(this)">中文</button>
     <button value="ru" onclick="getDictionary(this)">Русский</button>
+    <button value="eo" onclick="getDictionary(this)">Esperanto</button>
   </header>
 
   <br><hr>
@@ -76,6 +77,9 @@
           break;
         case 'ru':
           searchPlaceholder = "поиск";
+          break;
+        case 'eo':
+          searchPlaceholder = "serĉi";
           break;
         case 'cn':
           searchPlaceholder = "搜索";
