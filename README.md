@@ -17,3 +17,11 @@ If you would like to add or edit rows to some dictionaries, simply:
 3. Submit a Pull Request back to this repository
 
 The [website](http://occidental-lang.com/dictionaries) will automatically update along with the dictionaries because it dynamically pulls the CSVs every time it loads the page.
+
+## Libraries Used
+
+Special thanks to 
+
+- Jets https://github.com/NeXTs/Jets.js
+- Papa Parse https://github.com/mholt/PapaParse
+- JQuery https://github.com/jquery/jquery
