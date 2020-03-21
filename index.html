@@ -134,7 +134,14 @@
         contentTag: '#jetsContent',
         searchInSpecificColumn: true,
         callSearchManually: true,
-        columns: [0,1]
+        columns: [0,1],
+        diacriticsMap: {
+          a: "ÁÀÃÂÄáàãâä",
+          e: "ÉÈÊËéèêë",
+          i: "ÍÌÎÏíìîï",
+          o: "ÓÒÕÔÖóòõôö",
+          u: "ÚÙÛÜúùûü"
+        }
       });
       $("#targetLang_search").on("input", function(event) { jets.search(event.target.value, 0) } );
       $("#occidental_search").on("input", function(event) { jets.search(event.target.value, 1) } );
