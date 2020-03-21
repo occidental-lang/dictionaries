@@ -60,7 +60,7 @@
   <br><hr>
 
   <div id="data">
-    <div id="dictionary_search"></div>
+    <div id="search"></div>
     <div id="parsed_csv_list"></div>
   </div>
   
@@ -95,9 +95,12 @@
       console.log(languageISO);
       var csvURL = "data/" + languageISO + "-ie.csv";
 
+      if (jets) {
+        jets.destroy(); // if clicking button again, destroy previous jets instance
+      }
       $("#parsed_csv_list").empty();
-      $("#dictionary_search").empty();
-      $("#dictionary_search").html("<input placeholder=" + searchPlaceholder + " type='search' id='jetsSearch'>");
+      $("#search").empty();
+      $("#search").html("<input id='targetLang_search' placeholder=" + searchPlaceholder + " type='search'><input id='occidental_search' placeholder='serchar' type='search'>");
 
       Papa.parse(csvURL, {
         download: true,
@@ -131,10 +134,13 @@
       table+= "</tbody></table>";
       $("#parsed_csv_list").html(table);
       var jets = new Jets({
-        searchTag: '#jetsSearch',
         contentTag: '#jetsContent',
-        columns: [0] // Only search native language first column
+        searchInSpecificColumn: true,
+        callSearchManually: true,
+        columns: [0,1]
       });
+      $("#targetLang_search").on("input", function(event) { jets.search(event.target.value, 0) } );
+      $("#occidental_search").on("input", function(event) { jets.search(event.target.value, 1) } );
     }
   </script>
  </body>
