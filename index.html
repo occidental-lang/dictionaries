@@ -137,15 +137,16 @@
         columns: [0,1],
         diacriticsMap: {
           a: "ÁÀÃÂÄáàãâä",
+          я: "я́",
           e: "ÉÈÊËéèêë",
           i: "ÍÌÎÏíìîï",
           o: "ÓÒÕÔÖóòõôö",
           u: "ÚÙÛÜúùûŭü",
-          c: 'ĉ', 
-          g: 'ĝ', 
-          h: 'ĥ', 
-          j: 'ĵ', 
-          s: 'ŝ',
+          c: "ĉ", 
+          g: "ĝ", 
+          h: "ĥ", 
+          j: "ĵ", 
+          s: "ŝ",
         }
       });
       $("#targetLang_search").on("input", function(event) { jets.search(event.target.value, 0) } );
