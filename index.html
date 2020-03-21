@@ -95,9 +95,6 @@
       console.log(languageISO);
       var csvURL = "data/" + languageISO + "-ie.csv";
 
-      if (jets) {
-        jets.destroy(); // if clicking button again, destroy previous jets instance
-      }
       $("#parsed_csv_list").empty();
       $("#search").empty();
       $("#search").html("<input id='targetLang_search' placeholder=" + searchPlaceholder + " type='search'><input id='occidental_search' placeholder='serchar' type='search'>");
