@@ -68,8 +68,30 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
   <script>
+    var currentDictionary = '';
+    if (window.location.search.length > 2) {
+      currentDictionary = window.location.search.slice(3);
+      console.log('current dictionary:' + currentDictionary)
+      getDictionary(currentDictionary);
+    } else {
+      console.log('no dictionary found in url.')
+    }
+    
+
+
     function getDictionary(element) {
-      var languageISO = element.value;
+      console.log(element);
+      
+      var languageISO;
+
+      if (typeof element == 'string') {
+        languageISO = element;
+      } else {
+        languageISO = element.value;
+      }
+
+      history.pushState({dictionary:languageISO},'','?d=' + languageISO);
+      currentDictionary = languageISO;
       
       var searchPlaceholder = '';
       switch (languageISO) {
