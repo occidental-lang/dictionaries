@@ -59,6 +59,8 @@
     <button value="val" onclick="getDictionary(this)">Valencian</button>
     <button value="bal" onclick="getDictionary(this)">Baleari</button>
     <button value="an" onclick="getDictionary(this)">Aragonesi</button>
+    <button value="gl" onclick="getDictionary(this)">Galician</button>
+    <button value="pt" onclick="getDictionary(this)">Portuguese</button>
   </header>
 
   <br><hr>
@@ -125,6 +127,12 @@
           break;
         case 'cn':
           searchPlaceholder = "搜索";
+          break;
+        case 'pt':
+          searchPlaceholder = "buscar";
+          break;
+        case 'gl':
+          searchPlaceholder = "pesquisar";
           break;
         default:
           searchPlaceholder = "search";
