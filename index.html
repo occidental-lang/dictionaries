@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>OcciDict</title>
+		<meta property="og:title" content="Dictionariums de Occidental">
+		<meta property="og:site_name" content="OcciDict">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha512-dfX5uYVXzyU8+KHqj8bjo7UkOdg18PaOtpa48djpNbZHwExddghZ+ZmzWT06R5v6NSk3ZUfsH6FNEDepLx9hPQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="js/occidict.js"></script>
+
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css" integrity="sha512-UuQ/zJlbMVAw/UU8vVBhnI4op+/tFOpQZVT+FormmIEhRSCnJWyHiBbEVgM4Uztsht41f3FzVWgLuwzUqOObKw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/solid.min.css" integrity="sha512-Hp+WwK4QdKZk9/W0ViDvLunYjFrGJmNDt6sCflZNkjgvNq9mY+0tMbd6tWMiAlcf1OQyqL4gn2rYp7UsfssZPA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<link rel="shortcut icon" type="image/x-icon" href="https://occidental-lang.com/favicon.ico">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<a href="https://occidental-lang.com"><img src="img/unde_yelb.png" id="logo" alt="Insigne de Occidental"></a>
+
+		<input type="text" id="searchfield" autocomplete="off" value="">
+		<button onclick="doSearch()" id="searchbutton"><i class="fa-solid fa-magnifying-glass"></i></button>
+		<div id="info">Asterisco (*) es usabil quam marca substitutiv.</div>
+		<input type="checkbox" id="search_nat" checked><label for="search_nat">Serchar in anglés</label>
+		<input type="checkbox" id="search_occ" checked><label for="search_occ">Serchar in Occidental</label>
+
+		<div id="noresults">Null resultates</div>
+
+		<table class="results_table" id="results_nat">
+			<tr><th colspan="2">Anglés &ShortRightArrow; Occidental</th></tr>
+			<tr><td></td><td></td></tr>
+		</table>
+		<table class="results_table" id="results_occ">
+			<tr><th colspan="2">Occidental &ShortRightArrow; Anglés</th></tr>
+			<tr><td></td><td></td></tr>
+		</table>
+	</body>
+</html>
