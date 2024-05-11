@@ -6,12 +6,15 @@ body {
 }
 
 #logo {
-	margin: 40px auto;
-	display: block;
 	width: 150px;
 	border: 5px solid #0c5e64;
 	border-radius: 50%;
 	background-color: #0c5e64;
+}
+
+#logo_link {
+	margin: 32px auto 15px auto;
+	display: inline-block;
 }
 
 .results_table {
@@ -45,6 +48,17 @@ body {
 .results_table th {
 	padding: 5px;
 	width: 50%;
+}
+
+#dictselector {
+	font-size: 20px;
+	text-align: center;
+	outline: none;
+	display: block;
+	margin: 20px auto;
+	background-color: #deb887;
+	border: 2px solid #0c5e64;
+	border-radius: 5px;
 }
 
 #searchfield {
