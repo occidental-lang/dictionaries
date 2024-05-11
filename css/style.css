@@ -103,4 +103,10 @@ body {
 	#searchfield {
 		width: 80%;
 	}
+	#logo {
+		width: 75px;
+	}
+	#logo_link {
+		margin: 16px auto 0px auto;
+	}
 }
