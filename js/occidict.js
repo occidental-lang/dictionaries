@@ -54,7 +54,7 @@ $(document).ready(function() {
 });
 
 function loadDict(language) {
-	Papa.parse('data/' + language + '-ie.csv', {
+	Papa.parse("data/" + language + "-ie.csv", {
 		download: true,
 		header: false,
 		skipEmptyLines: true,
@@ -78,11 +78,11 @@ function setSearchParam(key, value) {
 }
 
 function searchOcc(entry) {
-	return re.test(entry[1].toLowerCase());
+	return re.test(entry[1]);
 }
 
 function searchNat(entry) {
-	return re.test(entry[0].toLowerCase());
+	return re.test(entry[0]);
 }
 
 function doSearch() {
@@ -90,11 +90,11 @@ function doSearch() {
 	$("#searchfield").select();
 
 	const query_raw = $("#searchfield").val();
-	const query = query_raw.trim().toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\\\*/g, ".*?");
+	const query = query_raw.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\\\*/g, ".*?");
 
 	if(query.length > 0) {
 		$(".results_table").hide();
-		re = new RegExp("\\b" + query + "\\b");
+		re = new RegExp("(^|\\P{L})" + query + "($|\\P{L})", "ui");
 
 		const results = [[], []]
 		if($("#search_occ").is(":checked"))
@@ -109,13 +109,13 @@ function doSearch() {
 
 			setSearchParam("q", query_raw);
 
-			const re_start = new RegExp("^\\b" + query + "\\b");
+			const re_start = new RegExp("^" + query + "($|\\P{L})", "ui");
 			results.forEach(function(ra, i) {
 				if(ra.length > 0) {
 					const entries = [[], []];
 					ra.sort(function(a, b){return a[1-i] < b[1-i] ? -1 : 1});
 					ra.forEach(function(r) {
-						if(re_start.test(r[1-i].toLowerCase()))
+						if(re_start.test(r[1-i]))
 							entries[0].push(r);
 						else
 							entries[1].push(r);
