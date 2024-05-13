@@ -1,4 +1,4 @@
-let dictionary, re;
+let dictionary, language, re;
 const tables = ["#results_occ", "#results_nat"];
 const languages = {
 	en:	["Anglés",	"anglés"],
@@ -28,18 +28,29 @@ $(document).ready(function() {
 	});
 
 	$("#dictselector").on("change", function() {
-		loadDict($( this ).val());
-
-		setSearchParam("d", $( this ).val());
+		loadDict($( this ).val(), true);
 	});
 
-	$("input:checkbox").on("change", doSearch);
+	$("input:checkbox").on("change", function() {
+		doSearch(true);
+	});
+
+	$(window).on("popstate", function(e) {
+		const state = e.originalEvent.state;
+		if(state) {
+			$("#searchfield").val(state.q);
+
+			if(state.d != language)
+				loadDict(state.d, false);
+			else
+				doSearch(false);
+		}
+	});
 
 	const sp = new URLSearchParams(location.search);
 	if(sp.has("q"))
 		$("#searchfield").val(sp.get("q"));
 
-	let language;
 	if(sp.has("d") && sp.get("d") in languages)
 		language = sp.get("d");
 	else
@@ -48,12 +59,12 @@ $(document).ready(function() {
 	if(!language)
 		language = "en";
 
-	$("#dictselector").val(language);
-	setSearchParam("d", language);
-	loadDict(language);
+	history.replaceState({ d: language, q: $("#searchfield").val() }, "", document.location.href);
+	loadDict(language, false);
 });
 
-function loadDict(language) {
+function loadDict(lang, history) {
+	language = lang;
 	Papa.parse("data/" + language + "-ie.csv", {
 		download: true,
 		header: false,
@@ -61,20 +72,29 @@ function loadDict(language) {
 		complete: function(results) {
 			dictionary = results.data.slice(1);
 
+			if(history)
+				pushHistory();
+
 			$(".natlang").text(languages[language][0]);
 			$(".natlang_lower").text(languages[language][1]);
+			$("#dictselector").val(language);
 
 			localStorage.setItem("language", language);
 
-			doSearch();
+			doSearch(false);
 		}
 	});
 }
 
-function setSearchParam(key, value) {
+function pushHistory() {
 	const url = new URL(location);
-	url.searchParams.set(key, value);
-	history.pushState({}, "", url);
+	url.searchParams.set("d", language);
+	if($("#searchfield").val().length > 0)
+		url.searchParams.set("q", $("#searchfield").val());
+	else
+		if(url.searchParams.has("q"))
+			url.searchParams.delete("q");
+	history.pushState({ d: language, q: $("#searchfield").val() }, "", url);
 }
 
 function searchOcc(entry) {
@@ -85,15 +105,19 @@ function searchNat(entry) {
 	return re.test(entry[0]);
 }
 
-function doSearch() {
+function doSearch(history) {
 	$("#searchfield").focus();
 	$("#searchfield").select();
+	$(".results_table").hide();
+	$("#noresults").hide();
+
+	if(history)
+		pushHistory();
 
 	const query_raw = $("#searchfield").val();
 	const query = query_raw.trim().replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\\\*/g, ".*?");
 
 	if(query.length > 0) {
-		$(".results_table").hide();
 		re = new RegExp("(^|\\P{L})" + query + "($|\\P{L})", "ui");
 
 		const results = [[], []]
@@ -102,12 +126,10 @@ function doSearch() {
 		if($("#search_nat").is(":checked"))
 			results[1] = dictionary.filter(searchNat);
 
-		if(results[0].length > 0 || results[1].length > 0) {
-			$("#noresults").hide();
-			$(".results_table tr:has(td)").remove();
-			$(document).prop("title", query_raw + " – OcciDict");
+		$(document).prop("title", query_raw + " – OcciDict");
 
-			setSearchParam("q", query_raw);
+		if(results[0].length > 0 || results[1].length > 0) {
+			$(".results_table tr:has(td)").remove();
 
 			const re_start = new RegExp("^" + query + "($|\\P{L})", "ui");
 			results.forEach(function(ra, i) {
@@ -131,11 +153,8 @@ function doSearch() {
 		}
 		else {
 			$("#noresults").show();
-			$(document).prop("title", "OcciDict");
-
-			const url = new URL(location);
-			url.searchParams.delete("q");
-			history.pushState({}, "", url);
 		}
 	}
+	else
+		$(document).prop("title", "OcciDict");
 }
