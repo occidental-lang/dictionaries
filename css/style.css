@@ -1,0 +1,112 @@
+body {
+	font-family: sans-serif;
+	text-align: center;
+	background: #deb887;
+	color: black;
+}
+
+#logo {
+	width: 150px;
+	border: 5px solid #0c5e64;
+	border-radius: 50%;
+	background-color: #0c5e64;
+}
+
+#logo_link {
+	margin: 32px auto 15px auto;
+	display: inline-block;
+}
+
+.results_table {
+	display: none;
+	margin: 30px auto auto auto;
+	width: 40%;
+	border: 1px solid #0c5e64;
+	border-collapse: collapse;
+}
+
+.results_table tr {
+	background: white;
+}
+
+.results_table tr:nth-child(odd) {
+	background: #eee;
+}
+
+.results_table tr:nth-child(1) {
+	background: #0c5e64;
+	color: white;
+	border: 1px solid #0c5e64;
+}
+
+.results_table td {
+	width: 50%;
+	text-align: left;
+	padding: 5px;
+}
+
+.results_table th {
+	padding: 5px;
+	width: 50%;
+}
+
+#dictselector {
+	font-size: 20px;
+	text-align: center;
+	outline: none;
+	display: block;
+	margin: 20px auto;
+	background-color: #deb887;
+	border: 2px solid #0c5e64;
+	border-radius: 5px;
+}
+
+#searchfield {
+	height: 30px;
+	font-size: 20px;
+	width: 30%;
+	outline: none;
+}
+
+#searchbutton {
+	background: #0c5e64;
+	font-size: 20px;
+	padding: 5px 8px;
+	border: 1px solid #0c5e64;
+	border-radius: 10px;
+	cursor: pointer;
+	color: white;
+}
+
+#searchbutton:hover {
+	background: white;
+	color: #0c5e64;
+}
+
+#info {
+	margin: 5px 0px;
+	font-size: small;
+	font-style: italic;
+}
+
+#noresults {
+	display: none;
+	font-style: italic;
+	font-size: 20px;
+	margin-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+	.results_table { 
+		width: 95%;
+	}
+	#searchfield {
+		width: 80%;
+	}
+	#logo {
+		width: 75px;
+	}
+	#logo_link {
+		margin: 16px auto 0px auto;
+	}
+}
