@@ -23,6 +23,16 @@ $(document).ready(function() {
 		}
 	});
 
+	$("body").on("keydown", function(event) {
+		if(event.key === "Tab") {
+			event.preventDefault;
+			let newLanguage;
+			if(!(newLanguage = Object.keys(languages).at(Object.keys(languages).indexOf(language) + (event.shiftKey ? -1 : 1))))
+				newLanguage = Object.keys(languages)[0];
+			loadDict(newLanguage, true);
+		}
+	});
+
 	$("body").on("keydown", function() {
 		$("#searchfield").focus();
 	});
