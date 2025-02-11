@@ -2244,7 +2244,7 @@ comparison,comparation
 compartment,"rayon, branche, compartiment; (rail.) cupé"
 compass,"circuit, circul, sfere, circumferentie; (extent) extension, limites; (ship's) bussol; (pair of compasses) compasse"
 compassion,"~, misericordie"
-compatible,campatabil
+compatible,compatibil
 compatriot,~
 compeer,socio
 compel,"fortiar, obligar"
@@ -3633,7 +3633,7 @@ drowsy,"somnolent, dormiaci"
 drub,"batter, bastonar"
 drudge,"quasi-sclave (-a), marmiton"
 drudgery,"strapacie, penosi labore"
-drug,"drogue (-ist), medicament; v. narcot isar, intoxicar"
+drug,"drogue (-ist), medicament; v. narcotisar, intoxicar"
 druid,druide (-ic)
 drum,"tambur (-ar, -ero, -ist); cilindre; (of ear) timpane"
 drunk|drunken,"ebri, ebriat (in-ar)"
@@ -4468,7 +4468,7 @@ finance,"financie (-al, -ero)"
 finch,pinson
 find,"trovar; constatar; (supply with) provider; n. trova, trovage"
 finding,"n. sententie, verdicte, judicie"
-fine,"a. bell; (thin) tenui; subtil; (sharp) acut: (delicate) fin, delicat; n. punition pocuhiari, multa, amende"
+fine,"a. bell; (thin) tenui; subtil; (sharp) acut: (delicate) fin, delicat; n. punition pecuniari, multa, amende"
 finery,ornamentes
 finesse,"~, astutie, subtilitá; (at cards) finte"
 finger,fingre; v. palpar. ~ print: fingre-print
@@ -4842,7 +4842,8 @@ fumigate,"fumicar, fum-desinfecter"
 fun,"amusament, divertissement; comicalitá, jocada"
 function,"~ (-ar, -ario)"
 fund,"provision, stock; cassa, capitale; abundantie"
-fundament,"~ (-al, -alisme) funeral: interration, funerale; a. funebri, funeral"
+fundament,"~ (-al, -alisme)"
+funeral,"interration, funerale; a. funebri, funeral"
 fungus,fungo (-osi)
 funicular,"a. de cable; n. cable-relvia, funiculare"
 funnel,funel
@@ -6272,7 +6273,7 @@ inland,"intran, interiori"
 inlay,"mosaicar, parquettar"
 inlet,"n. baya, micri golf; ingress"
 inly,internalmen
-inmate,"convivente, habitants"
+inmate,"convivente, habitante"
 inmost,"max interiori, max secret, max intim"
 inn,"albergo, gastería, taverne. ~ keeper: albergator, tavernero, restorator"
 innate,"innat, innascet, natural"
@@ -8453,7 +8454,7 @@ optimist,~ (-ic)
 option,"alternative, option"
 optional,facultativ
 opulent,"~ (-ie), rich"
-or,o; (o therwise) altrimen. whether...or ...: sive...sive...
+or,o; (otherwise) altrimen. whether...or ...: sive...sive...
 oracle,oracul (-ari)
 oral,"~, boccal"
 orange,"~ (-iero, -ería)"
@@ -8757,7 +8758,7 @@ parity,paritá
 park,parc; v. parcar
 parlance,"términos de conversation, linguage"
 parley,"v. conferer (-entie), parlamentar"
-parliament,"par lament (-ari, -ario)"
+parliament,"parlament (-ari, -ario)"
 parlour,salon
 parlous,"dangerosi, deplorabil"
 parochial,parocial
