@@ -57,6 +57,32 @@ $(document).ready(function() {
 		}
 	});
 
+	// Si tu decovri to-ci ante li 1-im april 2025, ples ne ruinar li surprise por li altres! :)
+	const date = new Date();
+
+	function wink() {
+		$("#eyesclosed").show();
+		setTimeout(function() {
+			$("#eyesclosed").hide();
+		}, 300);
+		setTimeout(wink, 1000 + Math.random() * 5000);
+	}
+
+	if(date.getMonth() == 3 && date.getDate() == 1 && $(window).width() > 600) {
+		$("#logo_link").prepend('<svg id="logo2" xmlns="http://www.w3.org/2000/svg"><image id="edgar" href="img/edgar.png" width="150" height="150" /><circle id="eye1" cx="45" cy="69" r="2" style="fill:#333;" /><circle id="eye2" cx="82" cy="66" r="2" style="fill:#333;" /><image id="eyesclosed" href="img/edgar2.png" width="150" height="150" /></svg>');
+		$("#eyesclosed").hide();
+		$(window).on("mousemove", function(e) {
+			let xc = $(window).width() / 2;
+			let xo = (e.pageX - xc) / xc * 4;
+			$("#eye1").attr("cx", 45 + xo);
+			$("#eye2").attr("cx", 82 + xo);
+			let yo = (e.pageY - 120) / (e.pageY < 120 ? 120 : $(window).height() - 120);
+			$("#eye1").attr("cy", 69 + yo);
+			$("#eye2").attr("cy", 66 + yo);
+		});
+		setTimeout(wink, 500);
+	}
+
 	const sp = new URLSearchParams(location.search);
 	if(sp.has("q"))
 		$("#searchfield").val(sp.get("q"));
