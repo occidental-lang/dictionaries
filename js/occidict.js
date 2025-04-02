@@ -57,7 +57,6 @@ $(document).ready(function() {
 		}
 	});
 
-	// Si tu decovri to-ci ante li 1-im april 2025, ples ne ruinar li surprise por li altres! :)
 	const date = new Date();
 
 	function wink() {
@@ -68,8 +67,15 @@ $(document).ready(function() {
 		setTimeout(wink, 1000 + Math.random() * 5000);
 	}
 
-	if(date.getMonth() == 3 && date.getDate() == 1 && $(window).width() > 600) {
-		$("#logo_link").prepend('<svg id="logo2" xmlns="http://www.w3.org/2000/svg"><image id="edgar" href="img/edgar.png" width="150" height="150" /><circle id="eye1" cx="45" cy="69" r="2" style="fill:#333;" /><circle id="eye2" cx="82" cy="66" r="2" style="fill:#333;" /><image id="eyesclosed" href="img/edgar2.png" width="150" height="150" /></svg>');
+	if(date.getMonth() == 7 && date.getDate() == 23 && $(window).width() > 600) {
+		let svg = '<svg id="logo2" xmlns="http://www.w3.org/2000/svg">';
+		svg += '<image id="edgar" href="img/edgar.png" width="150" height="150" />';
+		svg += '<circle id="eye1" cx="45" cy="69" r="2" style="fill:#333;" />';
+		svg += '<circle id="eye2" cx="82" cy="66" r="2" style="fill:#333;" />';
+		svg += '<image id="eyesclosed" href="img/edgar2.png" width="150" height="150" />';
+		svg += '</svg>';
+		$("#logo_link").prepend(svg);
+		$("#logo_link").attr('title', (date.getFullYear() - 1867).toString() + '-im aniversarie de Edgar de Wahl');
 		$("#eyesclosed").hide();
 		$(window).on("mousemove", function(e) {
 			let xc = $(window).width() / 2;
